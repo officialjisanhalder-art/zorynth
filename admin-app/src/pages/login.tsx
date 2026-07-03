@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { supabase } from '../lib/supabaseClient'
+import { supabase, supabaseAdmin } from '../lib/supabaseClient'
 import { useAuthStore } from '../stores/useAuthStore'
 import { Shield, AlertCircle } from 'lucide-react'
 
@@ -18,7 +18,7 @@ export const LoginPage: React.FC = () => {
     setLoading(true)
 
     try {
-      // 1. Authenticate with Supabase Auth
+      // 1. Authenticate credentials with standard auth client
       const { data, error: authError } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -31,8 +31,8 @@ export const LoginPage: React.FC = () => {
       }
 
       if (data.user) {
-        // 2. Check role from database
-        const { data: roleData } = await supabase
+        // 2. Fetch role from database using service role to bypass RLS policies
+        const { data: roleData } = await supabaseAdmin
           .from('user_roles')
           .select('role, status')
           .eq('user_id', data.user.id)
