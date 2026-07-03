@@ -28,8 +28,8 @@
 
 | Consumer App | Admin Panel |
 |:---:|:---:|
-| ![Browse](https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&auto=format&fit=crop&q=80) | ![Admin](https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80) |
-| **Streaming + Browse + Watchlist** | **CMS + User Management + Analytics** |
+| ![Consumer App](public/screenshots/consumer.png) | ![Admin Panel](public/screenshots/admin.png) |
+| **Browse · Watchlist · Player · Profiles** | **CMS · User Management · Analytics** |
 
 ---
 
