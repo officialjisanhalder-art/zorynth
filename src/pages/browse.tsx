@@ -310,7 +310,7 @@ export const BrowsePage: React.FC = () => {
   const categories = ['All', 'Sci-Fi', 'Action', 'Drama', 'Thriller']
 
   return (
-    <div className="pb-16 bg-background min-h-screen">
+    <div className="pb-16 bg-background min-h-screen cyber-grid">
       {/* Hero Spotlight */}
       {!searchQuery && !filterType && heroSpotlight && (
         <div className="relative h-[65vh] w-full flex items-end justify-start px-6 md:px-12 pb-12 overflow-hidden border-b border-border">
@@ -322,18 +322,18 @@ export const BrowsePage: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </div>
-
+ 
           <div className="relative z-10 max-w-2xl flex flex-col items-start gap-4 animate-fade-in">
-            <div className="flex items-center gap-2 border border-secondary/50 rounded-full px-3 py-1 bg-secondary/10">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-secondary font-heading">Spotlight Movie</span>
+            <div className="flex items-center gap-2 border border-secondary/50 rounded-full px-3 py-1 bg-secondary/10 glow-cyan">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-secondary font-heading glow-cyan-text">Spotlight Movie</span>
             </div>
-
-            <h2 className="text-4xl md:text-6xl font-bold font-heading tracking-tight">{heroSpotlight.title}</h2>
+ 
+            <h2 className="text-4xl md:text-6xl font-bold font-heading tracking-tight text-gradient">{heroSpotlight.title}</h2>
             
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
               {heroSpotlight.description}
             </p>
-
+ 
             <div className="flex items-center gap-4 text-xs text-muted-foreground font-semibold">
               <span className="flex items-center gap-1 text-secondary">
                 <Star className="w-4 h-4 fill-secondary" /> {getAverageRating(heroSpotlight.id)} Rating
@@ -349,11 +349,11 @@ export const BrowsePage: React.FC = () => {
                 </>
               )}
             </div>
-
+ 
             <div className="flex flex-wrap items-center gap-4 mt-2">
               <Link 
                 to={`/watch/movie/${heroSpotlight.id}`}
-                className="flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all text-sm cursor-pointer shadow-lg shadow-primary/20"
+                className="flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all text-sm cursor-pointer shadow-lg shadow-primary/30 glow-purple"
               >
                 <Play className="w-4 h-4 fill-primary-foreground" /> Play Now
               </Link>
@@ -363,7 +363,7 @@ export const BrowsePage: React.FC = () => {
               >
                 {watchlist.includes(heroSpotlight.id) ? (
                   <>
-                    <Check className="w-4 h-4 text-secondary" /> Added
+                    <Check className="w-4 h-4 text-secondary glow-cyan-text" /> Added
                   </>
                 ) : (
                   <>
@@ -375,7 +375,7 @@ export const BrowsePage: React.FC = () => {
           </div>
         </div>
       )}
-
+ 
       {/* Category Tabs */}
       <div className="px-6 md:px-12 py-8">
         <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-border">
@@ -385,7 +385,7 @@ export const BrowsePage: React.FC = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer whitespace-nowrap ${
                 activeCategory === category 
-                  ? 'bg-secondary text-secondary-foreground shadow-md' 
+                  ? 'bg-secondary text-secondary-foreground shadow-md glow-cyan' 
                   : 'bg-muted hover:bg-muted/80 text-muted-foreground'
               }`}
             >
@@ -394,11 +394,11 @@ export const BrowsePage: React.FC = () => {
           ))}
         </div>
       </div>
-
+ 
       {/* Main Browse Catalog Grid */}
       <div className="px-6 md:px-12 flex flex-col gap-6">
         <div className="flex justify-between items-center">
-          <h3 className="text-xl font-semibold font-heading tracking-tight">
+          <h3 className="text-xl font-semibold font-heading tracking-tight text-gradient">
             {searchQuery 
               ? `Results for "${searchQuery}"` 
               : filterType === 'movie' 
@@ -409,14 +409,14 @@ export const BrowsePage: React.FC = () => {
           </h3>
           <span className="text-xs text-muted-foreground">{filteredCatalog.length} titles found</span>
         </div>
-
+ 
         {filteredCatalog.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredCatalog.map((item) => (
               <div 
                 key={item.id} 
                 onClick={() => setSelectedMedia(item)}
-                className="group flex flex-col gap-3 relative border border-border/80 rounded-xl overflow-hidden bg-card/40 hover:bg-card/85 transition-all duration-300 shadow-md cursor-pointer"
+                className="group flex flex-col gap-3 relative border border-border/40 rounded-xl overflow-hidden glass-panel hover:glow-purple transition-all duration-300 shadow-md cursor-pointer"
               >
                 {/* Thumbnail Container */}
                 <div className="relative aspect-video overflow-hidden">
@@ -429,7 +429,7 @@ export const BrowsePage: React.FC = () => {
                     <Link 
                       to={`/watch/movie/${item.id}`}
                       onClick={(e) => e.stopPropagation()}
-                      className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg hover:scale-105 transition-transform cursor-pointer"
+                      className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg hover:scale-105 transition-transform cursor-pointer glow-purple"
                     >
                       <Play className="w-4 h-4 fill-primary-foreground text-primary-foreground" />
                     </Link>
@@ -438,14 +438,14 @@ export const BrowsePage: React.FC = () => {
                       className="w-8 h-8 rounded-full bg-muted/90 flex items-center justify-center shadow-lg hover:scale-105 transition-transform cursor-pointer border border-white/10"
                     >
                       {watchlist.includes(item.id) ? (
-                        <Check className="w-4 h-4 text-secondary" />
+                        <Check className="w-4 h-4 text-secondary glow-cyan-text" />
                       ) : (
                         <Plus className="w-4 h-4 text-white" />
                       )}
                     </button>
                   </div>
                 </div>
-
+ 
                 {/* Card Metadata */}
                 <div className="px-4 pb-4 pt-1 flex flex-col gap-1.5">
                   <div className="flex items-center justify-between text-[10px] text-muted-foreground font-semibold uppercase">
@@ -478,11 +478,11 @@ export const BrowsePage: React.FC = () => {
           </div>
         )}
       </div>
-
+ 
       {/* Details Modal */}
       {selectedMedia && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 md:p-6 backdrop-blur-sm overflow-y-auto">
-          <div className="w-full max-w-2xl bg-card border border-border rounded-xl overflow-hidden relative shadow-2xl animate-fade-in my-8 max-h-[90vh] flex flex-col">
+          <div className="w-full max-w-2xl glass-panel border border-border/40 rounded-xl overflow-hidden relative shadow-2xl animate-fade-in my-8 max-h-[90vh] flex flex-col glow-purple">
             <button 
               onClick={() => setSelectedMedia(null)}
               className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/60 border border-white/10 hover:bg-black/80 flex items-center justify-center text-white hover:text-primary cursor-pointer transition-colors"

@@ -24,12 +24,12 @@ export const AdminLayout: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans flex flex-col md:flex-row">
+    <div className="min-h-screen bg-background text-foreground font-sans flex flex-col md:flex-row cyber-grid">
       {/* Sidebar Navigation */}
-      <aside className="w-full md:w-64 border-r border-border bg-card/40 flex flex-col p-6 shrink-0 gap-6">
+      <aside className="w-full md:w-64 border-r border-border glass-panel flex flex-col p-6 shrink-0 gap-6">
         <div className="flex items-center gap-2 pb-6 border-b border-border">
-          <Shield className="w-6 h-6 text-primary" />
-          <span className="text-lg font-bold font-heading tracking-wider">ADMIN CONTROL</span>
+          <Shield className="w-6 h-6 text-primary glow-purple-text" />
+          <span className="text-lg font-bold font-heading tracking-wider text-gradient">ADMIN CONTROL</span>
         </div>
 
         <nav className="flex flex-col gap-1.5 flex-1">
@@ -42,7 +42,7 @@ export const AdminLayout: React.FC = () => {
                 to={item.path}
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                   isActive 
-                    ? 'bg-primary text-primary-foreground shadow-md shadow-primary/10' 
+                    ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20 glow-purple' 
                     : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                 }`}
               >
@@ -52,6 +52,7 @@ export const AdminLayout: React.FC = () => {
             )
           })}
         </nav>
+
 
         <div className="border-t border-border pt-4 flex flex-col gap-2">
           {/* External link to main consumer app */}

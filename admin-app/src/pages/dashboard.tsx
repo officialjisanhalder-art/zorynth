@@ -113,7 +113,8 @@ export const AdminDashboardPage: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold font-heading text-foreground flex items-center gap-2">
-            <Shield className="w-8 h-8 text-primary" /> Admin Operations
+            <Shield className="w-8 h-8 text-primary glow-purple-text" />
+            <span className="text-gradient">Admin Operations</span>
           </h1>
           <p className="text-xs text-muted-foreground mt-1">Platform-wide statistics, user controls, and library administration.</p>
         </div>
@@ -142,28 +143,28 @@ export const AdminDashboardPage: React.FC = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div className="border border-border bg-card/40 rounded-xl p-5 flex items-center justify-between shadow-md">
+        <div className="border border-border/40 glass-panel rounded-xl p-5 flex items-center justify-between shadow-md glow-purple">
           <div className="flex flex-col gap-1">
             <span className="text-xs text-muted-foreground uppercase font-bold">Streamed Minutes</span>
             <span className="text-2xl font-bold font-heading text-foreground">{loading ? '...' : `${stats.streamedMinutes}m`}</span>
           </div>
-          <BarChart2 className="w-10 h-10 text-secondary opacity-60" />
+          <BarChart2 className="w-10 h-10 text-secondary opacity-60 glow-cyan-text" />
         </div>
-        <div className="border border-border bg-card/40 rounded-xl p-5 flex items-center justify-between shadow-md">
+        <div className="border border-border/40 glass-panel rounded-xl p-5 flex items-center justify-between shadow-md glow-cyan">
           <div className="flex flex-col gap-1">
             <span className="text-xs text-muted-foreground uppercase font-bold">Total Users</span>
             <span className="text-2xl font-bold font-heading text-foreground">{loading ? '...' : users.length}</span>
           </div>
-          <Users className="w-10 h-10 text-primary opacity-60" />
+          <Users className="w-10 h-10 text-primary opacity-60 glow-purple-text" />
         </div>
-        <div className="border border-border bg-card/40 rounded-xl p-5 flex items-center justify-between shadow-md">
+        <div className="border border-border/40 glass-panel rounded-xl p-5 flex items-center justify-between shadow-md glow-purple">
           <div className="flex flex-col gap-1">
             <span className="text-xs text-muted-foreground uppercase font-bold">Media Titles</span>
             <span className="text-2xl font-bold font-heading text-foreground">{loading ? '...' : `${stats.mediaCount} Titles`}</span>
           </div>
-          <Video className="w-10 h-10 text-secondary opacity-60" />
+          <Video className="w-10 h-10 text-secondary opacity-60 glow-cyan-text" />
         </div>
-        <div className="border border-border bg-card/40 rounded-xl p-5 flex items-center justify-between shadow-md">
+        <div className="border border-border/40 glass-panel rounded-xl p-5 flex items-center justify-between shadow-md glow-cyan">
           <div className="flex flex-col gap-1">
             <span className="text-xs text-muted-foreground uppercase font-bold">Node Status</span>
             <span className="text-2xl font-bold font-heading text-green-400">99.9% Uptime</span>
@@ -173,8 +174,8 @@ export const AdminDashboardPage: React.FC = () => {
       </div>
 
       {/* Users Table */}
-      <div className="border border-border rounded-xl overflow-hidden bg-card/40 shadow-xl">
-        <div className="border-b border-border px-6 py-4 flex items-center justify-between bg-card/60">
+      <div className="border border-border/40 rounded-xl overflow-hidden glass-panel shadow-xl">
+        <div className="border-b border-border/40 px-6 py-4 flex items-center justify-between bg-card/20">
           <h3 className="font-bold font-heading text-foreground text-sm">
             Account Directory ({loading ? '…' : users.length})
           </h3>
